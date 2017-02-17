@@ -29,4 +29,8 @@ class MainActivity : AppCompatActivity() {
         Corot.execHttpWithRxSingle()
     }
 
+    fun button5(v: View) {
+        Corot.execHttpWithRxSingleWrapped()
+    }
+
 }

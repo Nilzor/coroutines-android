@@ -26,6 +26,12 @@ object Corot {
         }
     }
 
+    fun execHttpWithRxSingleWrapped() {
+        launch(CommonPool) {
+            execHttpWithRxSingle()
+        }
+    }
+
     fun serial() = runBlocking<Unit> {
         val job1 = async(CommonPool) { doWorld() }
         val job2 = async(CommonPool) { doWorld() }

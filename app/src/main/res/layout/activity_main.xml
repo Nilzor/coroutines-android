@@ -34,5 +34,11 @@
             android:onClick="button4"
             android:text="Execute HTTP w/rxSingle"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="button5"
+            android:text="Execute HTTP w/rxSingle in 'launch'"/>
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
