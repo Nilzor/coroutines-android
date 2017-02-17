@@ -10,27 +10,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Corot.blockingThreads()
+        PatternExamples.blockingThreads()
     }
 
     fun button1(v: View) {
-        Corot.nonBlocking()
+        PatternExamples.nonBlocking()
     }
 
     fun button2(v: View) {
-        Corot.blockingThreads()
+        PatternExamples.blockingThreads()
     }
 
     fun button3(v: View) {
-        Corot.execHttpRetrofitPlain()
+        HttpExamples.execHttpRetrofitPlain()
     }
 
     fun button4(v: View) {
-        Corot.execHttpWithRxSingle()
+        HttpExamples.execHttpWithRxSingle()
     }
 
     fun button5(v: View) {
-        Corot.execHttpWithRxSingleWrapped()
+        HttpExamples.execHttpWithRxSingleWrapped()
     }
 
 }
