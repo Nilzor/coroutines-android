@@ -22,6 +22,4 @@ interface HttpBin {
 
     @GET("delay/{secs}")
     fun delay(@Path("secs") delayTimeSecs: Int): Observable<HttpBinReply>
-    @GET("delay/{secs}")
-    fun delay2(@Path("secs") delayTimeSecs: Int): Call<HttpBinReply>
 }

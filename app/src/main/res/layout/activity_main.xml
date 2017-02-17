@@ -26,7 +26,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="button3"
-            android:text="Execute HTTP"/>
+            android:text="Execute HTTP Retrofit"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="button4"
+            android:text="Execute HTTP w/rxSingle"/>
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

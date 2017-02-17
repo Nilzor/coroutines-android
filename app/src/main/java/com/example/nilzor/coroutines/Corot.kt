@@ -1,22 +1,40 @@
 package com.example.nilzor.coroutines
 
 import android.util.Log
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.delay
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.experimental.*
+import kotlinx.coroutines.experimental.rx.awaitSingle
+import kotlinx.coroutines.experimental.rx.rxSingle
 import rx.schedulers.Schedulers
 import java.util.concurrent.ForkJoinPool
 
 object Corot {
     val TAG = "Demo";
-
-    fun execHttp() {
+    fun execHttpRetrofitPlain() {
         HttpBin.instance.delay(1).subscribeOn(Schedulers.io()).subscribe({
             Log.d(TAG, "Got origin: " + it.origin)
         })
+    }
 
+    fun execHttpWithRxSingle() {
+        rxSingle {
+            try {
+                val something = HttpBin.instance.delay(1).awaitSingle()
+                Log.d(TAG, "Got origin from execRxSignle: " + something.origin)
+            } catch (e: Exception) {
+                Log.e(TAG, "ERR", e)
+            }
+        }
+    }
 
-      //  HttpBin.instance().delay2(1).execute();
+    fun serial() = runBlocking<Unit> {
+        val job1 = async(CommonPool) { doWorld() }
+        val job2 = async(CommonPool) { doWorld() }
+        job1.await()
+        job2.await()
+    }
+
+    suspend fun doWorld() {
+        println("World!")
     }
 
     fun blockingThreads() {

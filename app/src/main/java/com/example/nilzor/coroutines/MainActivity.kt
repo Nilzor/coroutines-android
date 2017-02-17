@@ -22,6 +22,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun button3(v: View) {
-        Corot.execHttp()
+        Corot.execHttpRetrofitPlain()
     }
+
+    fun button4(v: View) {
+        Corot.execHttpWithRxSingle()
+    }
+
 }
